@@ -20,13 +20,16 @@ CREATE TABLE cursos (
     tipo_instrumento VARCHAR(20)
 );
 
--- No se incluyen FKs
+-- Incluir Foreign Keys
+-- Si no  se incluyen las FK en la tabla, pueden añadirse después con 'ALTER TABLE' + 'ADD CONSTRAINT'
 CREATE TABLE Inscripciones (
     id_inscripcion INT PRIMARY KEY,
     fecha_insc DATE,
     abono_insc BOOLEAN,
     id_alumno INT,
     id_curso INT,
+    CONSTRAINT FK_Inscripciones_Alumnos FOREIGN KEY (id_alumno) REFERENCES Alumnos(id_alumno),
+    CONSTRAINT FK_Inscripciones_Cursos FOREIGN KEY (id_curso) REFERENCES Cursos(id_curso)
 );
 
 -- INSERTS
