@@ -2,7 +2,7 @@
 -- www.todocodeacademy.com
 -- Todos los derechos reservados
 
--- Creates
+-- CREAR TABLAS
 CREATE TABLE alumnos (
     id_alumno INT PRIMARY KEY,
     apellido VARCHAR(50),
@@ -32,7 +32,7 @@ CREATE TABLE Inscripciones (
     CONSTRAINT FK_Inscripciones_Cursos FOREIGN KEY (id_curso) REFERENCES Cursos(id_curso)
 );
 
--- INSERTS
+-- INSERTAR DATOS
 
 INSERT INTO alumnos (id_alumno, apellido, nombre, direccion, email, fecha_nac, telefono) VALUES
 (1, 'Perez', 'Juan', 'Calle Falsa 123', 'juan.perez@example.com', '1996-06-10', '123456789'),
