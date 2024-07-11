@@ -45,16 +45,26 @@ JOIN cursos c ON i.id_curso = c.id_curso;
     -- 2º Contar la cantidad de cursos en la que está cada alumno inscripto
     -- 3º Filtrar los que estén en más de 1
 
+-- opción 1:
 SELECT nombre, apellido
 FROM alumnos
 WHERE id_alumno IN (
 	SELECT id_alumno
     FROM inscripciones
     GROUP BY id_alumno
-    HAVING COUNT(id_curso)>1   
+    HAVING COUNT(id_curso)>1
 );
 
---Mostrar el nombre de cada curso y la cantidad de alumnos inscritos en cada uno.
+-- opción 2:
+SELECT nombre, apellido
+FROM alumnos
+WHERE id_alumno IN (
+    SELECT id_alumno
+    FROM inscripciones
+    WHERE id_curso > 1
+);
+
+-- Mostrar el nombre de cada curso y la cantidad de alumnos inscritos en cada uno.
 SELECT c.nombre, COUNT(i.id_alumno)
 FROM cursos c
 JOIN inscripciones i ON c.id_curso = i.id_curso
@@ -65,7 +75,7 @@ GROUP BY c.nombre;
 -- Listar los alumnos que no han abonado la inscripción.
 SELECT a.nombre, a.apellido
 FROM alumnos a, inscripciones i
-WHERE a.id_alumno= i.id_alumno 
+WHERE a.id_alumno = i.id_alumno 
 AND i.abono_insc = FALSE;
 
 SELECT a.nombre, a.apellido
