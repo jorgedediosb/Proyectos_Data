@@ -1,6 +1,6 @@
 ## how to build a real-time data pipeline using Kafka, Polars, and Delta Lake
 
-## Sources Used
+### Sources Used
 
 - [Building a Real-Time Data Pipeline](https://medium.com/@nydas/building-a-real-time-data-pipeline-5eff6c6d8a3c)
 - [Deploy a Scalable Ad Analytics System in the Cloud with Amazon Redshift](https://redpanda-data.medium.com/deploy-a-scalable-ad-analytics-system-in-the-cloud-with-amazon-redshift-fbbfe9df290c)
